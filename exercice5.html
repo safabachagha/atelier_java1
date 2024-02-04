@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu de Devinette</title>
+</head>
+<body>
+
+    <h1>Jeu de Devinette</h1>
+
+    <script>
+        function entierAleatoire(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        // Générer un chiffre aléatoire entre 0 et 10
+        let chiffreAleatoire = entierAleatoire(0, 10);
+
+        // Nombre d'essais autorisés
+        let essaisRestants = 3;
+
+        // Boucle pour permettre à l'utilisateur d'avoir jusqu'à 3 essais
+        while (essaisRestants > 0) {
+            // Demander à l'utilisateur de deviner le chiffre
+            let guess = parseInt(prompt("Devinez le chiffre entre 0 et 10 :"));
+
+            // Vérifier la devinette
+            if (guess === chiffreAleatoire) {
+                alert("Bravo ! Vous avez deviné le chiffre !");
+                break; // Sortir de la boucle en cas de devinette correcte
+            } else {
+                alert("Dommage ! Essais restants : " + (essaisRestants - 1));
+            }
+
+            essaisRestants--;
+        }
+
+        // Afficher le chiffre aléatoire si l'utilisateur n'a pas deviné correctement
+        if (essaisRestants === 0) {
+            alert("Le chiffre était : " + chiffreAleatoire);
+        }
+
+    </script>
+
+</body>
+</html>

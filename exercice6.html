@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice DOM</title>
+</head>
+<body>
+
+    <h1 onclick="modif_paragraphe()">Cliquez pour modifier le paragraphe</h1>
+    <p id="paragraphe">Ceci est un paragraphe avec un mot original.</p>
+
+    <script>
+        function modif_paragraphe() {
+            // Sélectionner le paragraphe par son identifiant
+            let paragraphe = document.getElementById('paragraphe');
+
+            // Modifier le contenu avec la propriété innerHTML
+            paragraphe.innerHTML = paragraphe.innerHTML.replace('original', '<i>corrigé</i>');
+        }
+
+        function centrage_h1() {
+            // Détecter les éléments h1
+            let h1Elements = document.getElementsByTagName('h1');
+
+            // Sélectionner le premier h1 (s'il existe)
+            if (h1Elements.length > 0) {
+                let premierH1 = h1Elements[0];
+
+                // Modifier l'attribut align avec la méthode setAttribute
+                premierH1.setAttribute('align', 'center');
+            }
+        }
+
+        // Ajouter un événement au paragraphe pour appeler la fonction centrage_h1 au clic
+        document.getElementById('paragraphe').addEventListener('click', centrage_h1);
+    </script>
+
+</body>
+</html>

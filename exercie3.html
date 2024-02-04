@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste en compréhension</title>
+</head>
+<body>
+
+    <h1>Liste en compréhension</h1>
+
+    <div id="resultats"></div>
+
+    <script>
+        function genererListeComprehension(chaine1, chaine2) {
+            let resultatListe = [];
+
+            for (let char1 of chaine1) {
+                for (let char2 of chaine2) {
+                    resultatListe.push(char1 + char2);
+                }
+            }
+
+            return resultatListe;
+        }
+
+        // Appeler la fonction genererListeComprehension avec les chaînes "abc" et "de"
+        let resultat = genererListeComprehension("abc", "de");
+
+        // Afficher le résultat sur la page web
+        afficherResultat(resultat);
+
+        function afficherResultat(resultat) {
+            // Créer un élément de paragraphe
+            let paragraphe = document.createElement("p");
+            // Ajouter le résultat comme texte du paragraphe
+            paragraphe.textContent = "Résultat : " + resultat.join(", ");
+            // Ajouter le paragraphe à l'élément avec l'ID "resultats"
+            document.getElementById("resultats").appendChild(paragraphe);
+        }
+    </script>
+
+</body>
+</html>
